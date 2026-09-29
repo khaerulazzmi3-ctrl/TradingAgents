@@ -1,16 +1,13 @@
 from tradingagents.default_config import DEFAULT_CONFIG
 from tradingagents.graph.trading_graph import TradingAgentsGraph
 
-# DEFAULT_CONFIG already applies TRADINGAGENTS_* env-var overrides
-# (llm_provider, deep_think_llm, quick_think_llm, backend_url, etc.),
-# so users can switch models or endpoints purely via .env without
-# editing this script. Override individual keys here only when you
-# want a hard-coded value that should ignore the environment.
 config = DEFAULT_CONFIG.copy()
+config["llm_provider"] = "groq"
+config["quick_think_llm"] = "llama-3.3-70b-versatile"
+config["deep_think_llm"] = "llama-3.3-70b-versatile"
 
-# Initialize with custom config
 ta = TradingAgentsGraph(debug=True, config=config)
 
-# forward propagate
+print("--- Menjalankan Analisis AI Agent ---")
 _, decision = ta.propagate("NVDA", "2026-09-01")
-print(decision)
+print("Hasil Keputusan AI:", decision)
