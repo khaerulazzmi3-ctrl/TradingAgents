@@ -1,12 +1,12 @@
 import os
 
-# Set environment variables sebelum mengimpor modul TradingAgents
+from tradingagents.default_config import DEFAULT_CONFIG
+from tradingagents.graph.trading_graph import TradingAgentsGraph
+
+# Set environment variables untuk mengarahkan pustaka ke Groq
 groq_key = os.getenv("GROQ_API_KEY")
 os.environ["OPENAI_API_BASE"] = "https://api.groq.com/openai/v1"
 os.environ["OPENAI_API_KEY"] = groq_key or ""
-
-from tradingagents.default_config import DEFAULT_CONFIG
-from tradingagents.graph.trading_graph import TradingAgentsGraph
 
 config = DEFAULT_CONFIG.copy()
 
