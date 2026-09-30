@@ -4,6 +4,7 @@ import requests
 from tradingagents.default_config import DEFAULT_CONFIG
 from tradingagents.graph.trading_graph import TradingAgentsGraph
 
+
 # 1. TIMPA VARIABEL LINGKUNGAN UNTUK MEMAKSA GROQ
 groq_key = os.getenv("GROQ_API_KEY")
 groq_url = "https://api.groq.com/openai/v1"
